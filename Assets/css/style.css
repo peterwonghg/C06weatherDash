@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.titleBar{
+  background: linear-gradient(90deg,rgb(145, 157, 237) 2%, rgb(33, 11, 143) 35%);
+}
+
+.h1Title {
+  color: aliceblue;
+  padding: 4px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 3rem;  
+}
+
+.title{
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.searchHistory {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dayCard {
+    background: rgb(33, 11, 143);
+    color: white;
+    list-style: none;
+    padding: 15px;
+    border-radius: 10px;
+    border: solid;
+  }
+  
+  .five-day-forecast {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .five-day-forecast-header {
+    padding: 20px 10px;
+    font-size: 2em;
+  }
+  
+  .currentWeather ul {
+    list-style: none;
+    background: rgb(216, 232, 246);
+    padding: 10px;
+    margin: 10px;
+    width: 99%;
+    border-radius: 10px;
+  }
+  
+ 
+  /* Tablets - landscape and portrait */
+  @media screen and (max-width: 1180px) {
+    .five-day-forecast {
+      flex-direction: column;
+    }
+    }
+  
+  /* Small screens */
+  @media screen and (max-width: 576px) {
+    .currentWeather {
+      margin: 10px 0;
+    }
+    .currentWeather ul {
+      margin: 10px 0;
+    }
+  }
