@@ -2,7 +2,7 @@
 
 Deployed URL: 
 
-GitHUb URL: 
+GitHUb URL: https://github.com/peterwonghg/C06weatherDash.git
 
 
 ## Your Task
