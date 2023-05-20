@@ -1,8 +1,8 @@
 # 05 Third-Party APIs: Work Day Scheduler
 
-Deployed URL: https://peterwonghg.github.io/C06weatherDashResubmit/
+Deployed URL: https://github.com/peterwonghg/C06weatherDash.git
 
-GitHUb URL: https://github.com/peterwonghg/C06weatherDashResubmit.git
+GitHUb URL: https://peterwonghg.github.io/C06weatherDash/
 
 
 ## Your Task
