@@ -1,4 +1,4 @@
-# 05 Third-Party APIs: Work Day Scheduler
+# 06 Server Side APIs: OPenWeather
 
 Deployed URL: https://github.com/peterwonghg/C06weatherDash.git
 
