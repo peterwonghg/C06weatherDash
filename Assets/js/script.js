@@ -24,10 +24,18 @@ const units = 'metric';
 function displayWeather(cityName) {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}&lang=${lang}`;
     fetch(url)
+
         // The response interface of the Fetch API is the reponse to the request based on the City Name from openWeather    
         .then(function (response) {
-            return response.json();
-        })
+            // Handle Incorrect City Input condition
+            if (!response.ok) {
+                alert('Invalid City')
+              } else {
+                return response.json();
+              }
+            })      
+
+        
         .then(function (currentData) {
             console.log(currentData);
             // Using the latitude and longtitude response to call the weather data using One Call API        
@@ -35,7 +43,8 @@ function displayWeather(cityName) {
             fetch(oneCallUrl)
                 .then(function (response) {
                     return response.json();
-                })
+                    })      
+
                 .then(function (fiveDayData) {
                     // if City Name entered is not included in the searchHistory using the includes() method
                     if (searchHistory.includes(currentData.name) === false) {
@@ -57,7 +66,7 @@ function displayWeather(cityName) {
         <li>Temp/°C: ${(currentData.main.temp)}</li>
         <li>Wind/mps: ${currentData.wind.speed}</li>
         <li>Humidity/%: ${currentData.main.humidity}</li>
-    </ul>
+       </ul>
         `;
 
                     // Present the next 5 days date, weather icon condition, temperature, wind speed and humidity
@@ -72,10 +81,11 @@ function displayWeather(cityName) {
         <li>Temp/°C: ${(fiveDayData.daily[i].temp.day)}</li>
         <li>Wind/mps: ${fiveDayData.daily[i].wind_speed}</li>
         <li>Humidity/%: ${fiveDayData.daily[i].humidity}</li>
-    </ul>`;
+        </ul>`;
                     }
                     fiveDayForecast.innerHTML = cards;
                 });
+                
         });
 }
 
@@ -84,21 +94,48 @@ function displayCity() {
     if (localStorage.getItem("city")) {
         searchHistory = JSON.parse(localStorage.getItem("city"));
     }
-    let cityList = "";
+
+    // This section of code is executing constantly even during the process of typing City name, bad code
+    // let cityList = "";
+    // for (let i = 0; i < searchHistory.length; i++) {
+    //     cityList =
+    //         cityList +
+    //         `<button class="btn btn-secondary my-2" type="submit">${searchHistory[i]}</button>`;
+    // }
+    // // Applying bootstrap my-2 styling 
+    // pastSearchedCitiesEl.innerHTML = cityList;
+    // let myDashTwo = document.querySelectorAll(".my-2");
+    // for (let i = 0; i < myDashTwo.length; i++) {
+    //     myDashTwo[i].addEventListener("click", function () {
+    //         displayWeather(this.textContent);
+    //     });
+    // }
+
+
+    // Refactored displayCity()
     for (let i = 0; i < searchHistory.length; i++) {
-        cityList =
-            cityList +
-            `<button class="btn btn-secondary my-2" type="submit">${searchHistory[i]}</button>`;
-    }
-    // Applying bootstrap my-2 styling 
-    pastSearchedCitiesEl.innerHTML = cityList;
-    let myDashTwo = document.querySelectorAll(".my-2");
-    for (let i = 0; i < myDashTwo.length; i++) {
-        myDashTwo[i].addEventListener("click", function () {
-            displayWeather(this.textContent);
-        });
-    }
+        const btn = document.createElement('button')
+
+        btn.textContent =searchHistory[i]
+        btn.setAttribute('class', "btn btn-secondary my-2")
+        btn.setAttribute('value', searchHistory[i])
+
+        btn.addEventListener('click', btnClick)
+
+        pastSearchedCitiesEl.append(btn)
+
+        searchHistory.pop();
+
+
+
+    }    
 }
+
+
+function btnClick(){
+    displayWeather(this.value);
+}
+
 displayCity();
 
 searchForm.addEventListener("submit", dashboard); 

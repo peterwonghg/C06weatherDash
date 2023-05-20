@@ -1,8 +1,8 @@
 # 05 Third-Party APIs: Work Day Scheduler
 
-Deployed URL: https://peterwonghg.github.io/C06weatherDash/
+Deployed URL: https://peterwonghg.github.io/C06weatherDashResubmit/
 
-GitHUb URL: https://github.com/peterwonghg/C06weatherDash.git
+GitHUb URL: https://github.com/peterwonghg/C06weatherDashResubmit.git
 
 
 ## Your Task
@@ -74,9 +74,6 @@ https://codepen.io/cristinaconacel/pen/gQPYYg
 
 OpenWeatherMap API Tutorial 2021
 https://www.youtube.com/watch?v=nGVoHEZojiQ
-
-reset.CSS
-http://meyerweb.com/eric/tools/css/reset/
 
 
 - - -
